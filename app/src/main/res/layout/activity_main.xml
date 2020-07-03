@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.Appbar">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:layout_scrollFlags="scroll|enterAlways"/>
+<!--        enterAlways : 웹사이트에서 스크롤 내리다가 중간에
+                           올리면 toolbar 나오는 효과-->
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"/>
+<!--        exitUntilCollapse:나는 가려지지않고 남겠다-->
+    </com.google.android.material.appbar.AppBarLayout>
+<!--    Nested(둥지를 튼,감싼,내장되어있는)ScrollView-->
+<!--or  RecyclerView 만 가능한 웹페이지에 제목줄 올라가는 효과-->
+<!--    스크롤 뷰안에놓을 수있는 뷰는 오직 하나이며
+        height 은 반드시 wrap 으로 설정되어 있다-->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+<!--        밑의 뷰들이 toolbar에 가려지지않도록-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:background="#F00"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:background="#0F0"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:background="#00F"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:background="#70F"/>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
